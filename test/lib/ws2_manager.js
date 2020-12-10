@@ -76,6 +76,8 @@ describe('WS2Manager', () => {
       let called = false
 
       m._sockets.push({
+        pendingSubscriptions: [],
+        pendingUnsubscriptions: [],
         ws: { close: async () => { called = true } }
       })
 
@@ -88,6 +90,8 @@ describe('WS2Manager', () => {
       let called = false
 
       m._sockets.push({
+        pendingSubscriptions: [],
+        pendingUnsubscriptions: [],
         ws: {
           close: async () => {
             await Promise.delay(10)
